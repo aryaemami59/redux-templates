@@ -20,5 +20,9 @@
     "build": "yarn workspaces foreach -A run build",
     "test": "yarn workspaces foreach -A run test"
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "eslint": "latest",
+    "prettier": "latest"
+  }
 }
