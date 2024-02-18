@@ -34,3 +34,5 @@ tsconfig.vitest-temp.json
 # Ignore template lock files
 /packages/**/package-lock.json
 /packages/**/yarn.lock
+
+.eslintcache

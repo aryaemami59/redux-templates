@@ -1,6 +1,5 @@
 {
   "name": "redux-templates",
-  "packageManager": "yarn@4.1.0",
   "private": true,
   "license": "MIT",
   "repository": {
@@ -20,5 +19,6 @@
     "lint:fix": "eslint . --fix",
     "build": "yarn workspaces foreach -A run build",
     "test": "yarn workspaces foreach -A run test"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }
