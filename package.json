@@ -22,7 +22,12 @@
   },
   "packageManager": "yarn@4.1.0",
   "devDependencies": {
+    "@reduxjs/toolkit": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
     "eslint": "latest",
-    "prettier": "latest"
+    "prettier": "latest",
+    "react-redux": "latest",
+    "typescript": "latest"
   }
 }
