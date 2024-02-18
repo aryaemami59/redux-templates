@@ -13,5 +13,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {}
+  "scripts": {
+    "format": "prettier --write . --cache --cache-strategy content",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --cache --cache-strategy content",
+    "lint:fix": "eslint . --fix",
+    "build": "yarn workspaces foreach -A run build",
+    "test": "yarn workspaces foreach -A run test"
+  }
 }
