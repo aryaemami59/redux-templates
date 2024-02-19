@@ -18,7 +18,6 @@ jobs:
           filters: |
             packages:
               - 'packages/*'
-              packages: ${{ steps.filter.outputs.packages }}
 
   test:
     name: Test
