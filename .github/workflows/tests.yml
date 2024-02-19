@@ -50,7 +50,7 @@ jobs:
       - run: ls -lah
 
       - name: Install build artifact
-        run: yarn workspace @reduxjs/toolkit add $(pwd)/package.tgz
+        run: yarn workspace ${{ needs.changes.outputs.packages }} add $(pwd)/package.tgz
 
       - name: Run tests, against dist
         run: yarn test
