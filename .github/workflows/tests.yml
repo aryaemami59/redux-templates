@@ -41,16 +41,34 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ needs.changes.outputs.packages }}
-          path: ${{ needs.changes.outputs.packages }}
+      # - name: Download Artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: ${{ needs.changes.outputs.packages }}
+      #     path: ${{ needs.changes.outputs.packages }}
 
-      - run: ls -lah
+      # - run: ls -lah
 
-      - name: Install build artifact
-        run: yarn workspace ${{ needs.changes.outputs.packages }} add $(pwd)/package.tgz
+      # - name: Install build artifact
+      #   run: yarn workspace ${{ needs.changes.outputs.packages }} add $(pwd)/package.tgz
 
       - name: Run tests, against dist
         run: yarn test
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['20.x']
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+
+      - name: Build
+        run: yarn build
