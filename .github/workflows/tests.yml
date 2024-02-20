@@ -70,5 +70,8 @@ jobs:
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
 
+      - name: Install dependencies
+        run: yarn install
+
       - name: Build
         run: yarn build
