@@ -7,9 +7,9 @@ jobs:
     name: Check for changes
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v4
 
       # - name: Filter packages
       #   uses: dorny/paths-filter@v3
