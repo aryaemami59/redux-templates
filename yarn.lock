@@ -7427,7 +7427,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"create-expo@npm:^2.1.4":
+"create-expo@npm:latest":
   version: 2.1.4
   resolution: "create-expo@npm:2.1.4"
   bin:
@@ -16894,7 +16894,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:latest"
     "@typescript-eslint/eslint-plugin": "npm:latest"
     "@typescript-eslint/parser": "npm:latest"
-    create-expo: "npm:^2.1.4"
+    create-expo: "npm:latest"
     eslint: "npm:latest"
     eslint-config-prettier: "npm:latest"
     eslint-plugin-prettier: "npm:latest"

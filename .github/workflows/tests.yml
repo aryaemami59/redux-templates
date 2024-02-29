@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['20.x']
+        node: ['21.x']
 
     steps:
       - name: Check out repo
