@@ -70,7 +70,7 @@ const outputFolderNames = new Map([
 const allTemplates = {
   'cra-template-redux': `npx create-react-app@latest ${outputFolderNames.get('cra-template-redux')} --template file:${workspaces?.get('cra-template-redux')}`,
   'cra-template-redux-typescript': `npx create-react-app@latest ${outputFolderNames.get('cra-template-redux-typescript')} --template file:${workspaces?.get('cra-template-redux-typescript')}`,
-  'expo-template-redux-typescript': `npx create-expo@latest ${outputFolderNames.get('expo-template-redux-typescript')} --template file:${workspaces?.get('expo-template-redux-typescript')}`,
+  // 'expo-template-redux-typescript': `npx create-expo@latest ${outputFolderNames.get('expo-template-redux-typescript')} --template file:${workspaces?.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory ${outputFolderNames.get('react-native-template-redux-typescript')}`,
   'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo ${outputFolderNames.get('vite-template-redux')} -v`,
 }
