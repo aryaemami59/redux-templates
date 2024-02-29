@@ -7427,6 +7427,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"create-expo@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "create-expo@npm:2.1.4"
+  bin:
+    create-expo: build/index.js
+  checksum: 10/ea55ff3ae4b45d1b04b897e519a9ee9f0652775185ff0e1332e98b4ca5dedb0757ba1f9de6a36dbb7aceaa86f94e5991e94b9fa36e6074dc573af9d18f523ff4
+  languageName: node
+  linkType: hard
+
 "create-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "create-jest@npm:29.7.0"
@@ -16885,6 +16894,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:latest"
     "@typescript-eslint/eslint-plugin": "npm:latest"
     "@typescript-eslint/parser": "npm:latest"
+    create-expo: "npm:^2.1.4"
     eslint: "npm:latest"
     eslint-config-prettier: "npm:latest"
     eslint-plugin-prettier: "npm:latest"
