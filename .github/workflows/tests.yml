@@ -29,8 +29,8 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+        # with:
+        #   ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
