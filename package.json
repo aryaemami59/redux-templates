@@ -25,10 +25,13 @@
     "@reduxjs/toolkit": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "create-expo": "latest",
+    "create-react-app": "^5.0.1",
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "prettier": "latest",
+    "react-native": "^0.73.5",
     "react-redux": "latest",
     "typescript": "latest"
   }
