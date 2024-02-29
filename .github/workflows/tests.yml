@@ -3,9 +3,9 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  changes:
-    name: Check for changes
-    runs-on: ubuntu-latest
+  # changes:
+  #   name: Check for changes
+  #   runs-on: ubuntu-latest
 
     # steps:
     #   - name: Checkout repository
