@@ -13,7 +13,9 @@ interface LocalTestContext {
   store: AppStore
 }
 
-describe<LocalTestContext>('counter reducer', (it) => {
+const it = test<LocalTestContext>
+
+describe('counter reducer', () => {
   beforeEach<LocalTestContext>((context) => {
     const initialState: CounterSliceState = {
       value: 3,
