@@ -76,6 +76,13 @@ const allTemplates = {
   'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo ${outputFolderNames.get('vite-template-redux')} -v`,
 }
 
+const matrixList = Object.values(allTemplates).map((pkg) => ({
+  package: pkg,
+}));
+
+const includeStatement = { include: matrixList };
+console.log(`::set-output name=matrix::${includeStatement}`)
+
 const removeMockedTemplateDirectory = async (outputFolderName) => {
   await fs.rm(path.resolve(__dirname, '..', outputFolderName), {
     recursive: true,
@@ -125,4 +132,4 @@ const mockTemplates = async () => {
   })
 }
 
-await mockTemplates()
+// await mockTemplates()

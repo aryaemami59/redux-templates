@@ -3,29 +3,50 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  generate-matrix:
+    name: Generate Job Matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn
+      - run: node ./scripts/mockTemplates.mjs
+        id: set-matrix
   # changes:
   #   name: Check for changes
   #   runs-on: ubuntu-latest
 
-    # steps:
-    #   - name: Checkout repository
-    #     uses: actions/checkout@v4
+  # steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v4
 
-      # - name: Filter packages
-      #   uses: dorny/paths-filter@v3
-      #   id: filter
-      #   with:
-      #     filters: |
-      #       packages:
-      #         - 'packages/*'
+  # - name: Filter packages
+  #   uses: dorny/paths-filter@v3
+  #   id: filter
+  #   with:
+  #     filters: |
+  #       packages:
+  #         - 'packages/*'
 
   test:
-    name: Test
+    name: Test ${{ matrix.nickname }}
+    # name: Test
+    if: needs.generate-matrix.outputs.matrix != ''
+    needs: [generate-matrix]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         node: ['21.x']
+        template: ${{fromJSON(needs.generate-matrix.outputs.matrix)}}
+          # [
+          #   'npx create-react-app cra-template-redux --template',
+          #   'npx create-react-app cra-template-redux-typescript --template',
+          #   'expo-template-redux-typescript',
+          #   'react-native-template-redux-typescript',
+          #   'vite-template-redux',
+          # ]
 
     steps:
       - name: Check out repo
@@ -43,7 +64,9 @@ jobs:
         run: yarn install
 
       - name: Mock the templates
-        run: node ./scripts/mockTemplates.mjs
+        run: ${{ matrix.template }}
+
+        # run: node ./scripts/mockTemplates.mjs
 
       # - name: Download Artifacts
       #   uses: actions/download-artifact@v4
