@@ -43,7 +43,7 @@ jobs:
         run: yarn install
 
       - name: Mock the templates
-        run: yarn node ./scripts/mockTemplates.mjs
+        run: node ./scripts/mockTemplates.mjs
 
       # - name: Download Artifacts
       #   uses: actions/download-artifact@v4
