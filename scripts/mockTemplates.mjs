@@ -44,7 +44,7 @@ const listYarnWorkspaces = async () => {
     const workspaceNames = new Map(
       workspaces.map((workspace) => [
         workspace.name,
-        path.join(__dirname, '..', workspace.location),
+        path.resolve(__dirname, '..', workspace.location),
       ]),
     )
 
@@ -76,7 +76,7 @@ const allTemplates = {
 }
 
 const removeMockedTemplateDirectory = async (outputFolderName) => {
-  await fs.rm(path.join(__dirname, '..', outputFolderName), {
+  await fs.rm(path.resolve(__dirname, '..', outputFolderName), {
     recursive: true,
     force: true,
   })
