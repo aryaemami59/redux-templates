@@ -30,6 +30,7 @@
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "prettier": "latest",
+    "react-native": "^0.73.5",
     "react-redux": "latest",
     "typescript": "latest"
   }
