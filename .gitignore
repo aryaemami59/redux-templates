@@ -36,4 +36,3 @@ tsconfig.vitest-temp.json
 /packages/**/yarn.lock
 
 .eslintcache
-cra-js-app
