@@ -68,11 +68,11 @@ const outputFolderNames = new Map([
 ])
 
 const allTemplates = {
-  'cra-template-redux': `yarn dlx create-react-app@latest ${outputFolderNames.get('cra-template-redux')} --template file:${workspaces?.get('cra-template-redux')}`,
-  'cra-template-redux-typescript': `yarn dlx create-react-app@latest ${outputFolderNames.get('cra-template-redux-typescript')} --template file:${workspaces?.get('cra-template-redux-typescript')}`,
-  'expo-template-redux-typescript': `yarn dlx create-expo@latest ${outputFolderNames.get('expo-template-redux-typescript')} --template file:${workspaces?.get('expo-template-redux-typescript')}`,
-  'react-native-template-redux-typescript': `yarn dlx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory ${outputFolderNames.get('react-native-template-redux-typescript')}`,
-  'vite-template-redux': `yarn dlx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo ${outputFolderNames.get('vite-template-redux')} -v`,
+  'cra-template-redux': `create-react-app@latest ${outputFolderNames.get('cra-template-redux')} --template file:${workspaces?.get('cra-template-redux')}`,
+  'cra-template-redux-typescript': `create-react-app@latest ${outputFolderNames.get('cra-template-redux-typescript')} --template file:${workspaces?.get('cra-template-redux-typescript')}`,
+  'expo-template-redux-typescript': `create-expo@latest ${outputFolderNames.get('expo-template-redux-typescript')} --template file:${workspaces?.get('expo-template-redux-typescript')}`,
+  'react-native-template-redux-typescript': `react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory ${outputFolderNames.get('react-native-template-redux-typescript')}`,
+  'vite-template-redux': `tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo ${outputFolderNames.get('vite-template-redux')} -v`,
 }
 
 const removeMockedTemplateDirectory = async (outputFolderName) => {
