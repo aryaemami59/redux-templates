@@ -25,10 +25,6 @@
     "@reduxjs/toolkit": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
-<<<<<<< HEAD
-    "create-expo": "^2.1.4",
-=======
->>>>>>> 5595954 (Fix root dependencies)
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
