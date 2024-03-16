@@ -94,7 +94,6 @@ jobs:
         run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
 
       - name: Run Test for ${{ matrix.packages }}
-        working-directory: example
         run: npm run test
 
       # run: node ./scripts/mockTemplates.mjs
