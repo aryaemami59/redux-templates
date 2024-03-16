@@ -81,7 +81,7 @@ const matrixList = Object.values(allTemplates).map((pkg) => ({
 }));
 
 const includeStatement = { include: matrixList };
-console.log(`::set-output name=matrix::${includeStatement}`)
+console.log(`::set-output name=matrix::${JSON.stringify(includeStatement)}`)
 
 const removeMockedTemplateDirectory = async (outputFolderName) => {
   await fs.rm(path.resolve(__dirname, '..', outputFolderName), {
@@ -132,4 +132,4 @@ const mockTemplates = async () => {
   })
 }
 
-await mockTemplates()
+// await mockTemplates()
