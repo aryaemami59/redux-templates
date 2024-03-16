@@ -20,19 +20,15 @@
     "build": "yarn workspaces foreach -A run build",
     "test": "yarn workspaces foreach -A run test"
   },
-  "packageManager": "yarn@4.1.0",
   "devDependencies": {
     "@reduxjs/toolkit": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
-    "create-expo": "latest",
-    "create-react-app": "^5.0.1",
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "prettier": "latest",
-    "react-native": "^0.73.5",
-    "react-redux": "latest",
-    "typescript": "latest"
-  }
+    "react-redux": "latest"
+  },
+  "packageManager": "yarn@4.1.0"
 }
