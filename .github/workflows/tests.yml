@@ -34,9 +34,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: example/node_modules
-          key: ${{ runner.os }}-example-${{ hashFiles('example/yarn.lock') }}
+          key: ${{ runner.os }}-example-${{ hashFiles('$GITHUB_WORKSPACE/example/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-example-${{ hashFiles('example/yarn.lock') }}
+            ${{ runner.os }}-example-${{ hashFiles('$GITHUB_WORKSPACE/example/yarn.lock') }}
 
       - name: Install dependencies
         run: yarn workspaces focus ${{ matrix.packages }}
