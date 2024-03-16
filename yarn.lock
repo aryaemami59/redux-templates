@@ -7427,6 +7427,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
 "create-expo@npm:^2.1.4":
   version: 2.1.4
   resolution: "create-expo@npm:2.1.4"
@@ -7436,6 +7437,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> 5595954 (Fix root dependencies)
 "create-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "create-jest@npm:29.7.0"
@@ -16894,7 +16897,10 @@ __metadata:
     "@reduxjs/toolkit": "npm:latest"
     "@typescript-eslint/eslint-plugin": "npm:latest"
     "@typescript-eslint/parser": "npm:latest"
+<<<<<<< HEAD
     create-expo: "npm:^2.1.4"
+=======
+>>>>>>> 5595954 (Fix root dependencies)
     eslint: "npm:latest"
     eslint-config-prettier: "npm:latest"
     eslint-plugin-prettier: "npm:latest"
