@@ -60,6 +60,37 @@ const workspaces = await listYarnWorkspaces()
 
 const commitHash = await getCommitHash()
 
+async function constructGitHubUrl() {
+  try {
+    // Get the URL of the current remote repository
+    const remoteUrl = (await exec('git remote get-url origin')).stdout
+    // Transform SSH URL to HTTPS URL if necessary
+    // remoteUrl = remoteUrl.replace(/^git@([^:]+):/, 'https://$1/').replace('.git', '');
+
+    // Get the name of the current branch
+    const currentBranch = (await exec('git branch --show-current')).stdout
+
+    // Get the latest commit hash
+    const commitHash = (await exec('git rev-parse HEAD')).stdout
+
+    // Construct the URL
+    // Assuming the 'packages/vite-template-redux#convert-to-monorepo' part is static
+    // const url = `${remoteUrl}/tree/${currentBranch}/packages/vite-template-redux#convert-to-monorepo#${commitHash}`;
+
+    // console.log(`URL: ${url}`);
+
+    return {
+      remoteUrl,
+      currentBranch,
+      commitHash,
+    }
+  } catch (error) {
+    console.error(`Error: ${error}`)
+  }
+}
+
+const gitHubUrl = await constructGitHubUrl()
+
 const outputFolderNames = new Map([
   ['cra-template-redux', `cra-js-app`],
   ['cra-template-redux-typescript', `cra-ts-app`],
@@ -73,7 +104,7 @@ const allTemplates = {
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces?.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
-  'vite-template-redux': `npx tiged --mode=git https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo example -v && cd example && npm install`,
+  'vite-template-redux': `npx tiged --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch}#${gitHubUrl?.commitHash} -v && cd example && npm install`,
 }
 
 const mockTemplate = async (template) => {
