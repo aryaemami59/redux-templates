@@ -27,8 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache-dependency-path: ~/.cache/yarn
-          cache: 'yarn'
+          # cache-dependency-path: ~/.cache/yarn
+          # cache: 'yarn'
 
       - name: Mock the templates
         run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
