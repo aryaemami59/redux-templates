@@ -76,6 +76,10 @@ const allTemplates = {
   'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo ${outputFolderNames.get('vite-template-redux')} -v`,
 }
 
+const mockTemplate = (template) => {
+  return allTemplates[template]
+}
+
 const matrixList = Object.values(allTemplates).map((pkg) => ({
   package: pkg,
 }));
@@ -133,3 +137,5 @@ const mockTemplates = async () => {
 }
 
 // await mockTemplates()
+
+mockTemplate(process.argv[2])
