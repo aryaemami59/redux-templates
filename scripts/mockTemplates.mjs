@@ -3,7 +3,7 @@
 import { exec as _exec } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from "node:url";
+import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 
 const exec = promisify(_exec)
@@ -76,15 +76,15 @@ const allTemplates = {
   'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo example -v`,
 }
 
-const mockTemplate = (template) => {
-  return allTemplates[template]
+const mockTemplate = async (template) => {
+  await exec(allTemplates[template])
 }
 
 const matrixList = Object.values(allTemplates).map((pkg) => ({
   package: pkg,
-}));
+}))
 
-const includeStatement = { include: matrixList };
+const includeStatement = { include: matrixList }
 // console.log(`::set-output name=matrix::${JSON.stringify(includeStatement)}`)
 
 const removeMockedTemplateDirectory = async (outputFolderName) => {
