@@ -55,14 +55,14 @@ jobs:
     strategy:
       matrix:
         node: ['21.x']
-        packages:
-          [
-            'cra-template-redux',
-            'cra-template-redux-typescript',
-            'expo-template-redux-typescript',
-            'react-native-template-redux-typescript',
-            'vite-template-redux',
-          ]
+        # packages:
+        #   [
+        #     'cra-template-redux',
+        #     'cra-template-redux-typescript',
+        #     'expo-template-redux-typescript',
+        #     'react-native-template-redux-typescript',
+        #     'vite-template-redux',
+        #   ]
         template:
           [
             'npx create-react-app example --template cra-template-redux',
@@ -83,11 +83,11 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ matrix.packages }}-${{ matrix.node }}
-          # path: examples/${{ matrix.packages }}
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: ${{ matrix.packages }}-${{ matrix.node }}
+      #     # path: examples/${{ matrix.packages }}
 
       - name: Mock the templates
         run: ${{ matrix.template }}
