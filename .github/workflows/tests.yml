@@ -66,10 +66,10 @@ jobs:
         #   ]
         template:
           [
-            'npx create-react-app example --template file:(pwd)/cra-template-redux',
-            'npx create-react-app example --template file:(pwd)/cra-template-redux-typescript',
-            'npx create-expo@latest example --template file:(pwd)/expo-template-redux-typescript',
-            'npx react-native@latest init example --template file:(pwd)/react-native-template-redux-typescript --pm=npm --directory example',
+            'npx create-react-app example --template file:$(pwd)/cra-template-redux',
+            'npx create-react-app example --template file:$(pwd)/cra-template-redux-typescript',
+            'npx create-expo@latest example --template file:$(pwd)/expo-template-redux-typescript',
+            'npx react-native@latest init example --template file:$(pwd)/react-native-template-redux-typescript --pm=npm --directory example',
             'npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo vite-template-redux example',
           ]
         # ${{ needs.build.matrix }}
