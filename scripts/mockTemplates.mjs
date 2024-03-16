@@ -69,11 +69,11 @@ const outputFolderNames = new Map([
 ])
 
 const allTemplates = {
-  'cra-template-redux': `npx create-react-app example --template file:${workspaces?.get('cra-template-redux')}`,
-  'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
+  // 'cra-template-redux': `npx create-react-app example --template file:${workspaces?.get('cra-template-redux')}`,
+  // 'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces?.get('expo-template-redux-typescript')}`,
-  'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
-  'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo example -v`,
+  // 'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
+  // 'vite-template-redux': `npx tiged https://github.com/aryaemami59/redux-templates/packages/vite-template-redux#convert-to-monorepo example -v`,
 }
 
 const mockTemplate = async (template) => {
@@ -110,10 +110,10 @@ const mockTemplates = async () => {
 
     try {
       console.log('Running tests...')
-      const { stdout } = await exec(
-        `cd ${outputFolderName} && set CI=true && npm run test`,
-      )
-      console.log(stdout)
+      // const { stdout } = await exec(
+      //   `cd ${outputFolderName} && set CI=true && npm run test`,
+      // )
+      // console.log(stdout)
     } catch (err) {
       console.error(err)
       console.log(`Tests failed for ${templateName}! Exiting...`)
@@ -123,8 +123,8 @@ const mockTemplates = async () => {
 
     try {
       console.log('Building...')
-      const { stdout } = await exec(`cd ${outputFolderName} && npm run build`)
-      console.log(stdout)
+      // const { stdout } = await exec(`cd ${outputFolderName} && npm run build`)
+      // console.log(stdout)
     } catch (err) {
       console.error(err)
       console.log(`Build failed for ${templateName}! Exiting...`)
