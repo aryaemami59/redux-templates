@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { exec as _exec } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { promisify } from 'node:util';
+import { exec as _exec } from 'node:child_process'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { promisify } from 'node:util'
 
 const exec = promisify(_exec)
 
@@ -74,7 +74,7 @@ const allTemplates = {
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces?.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
-  'vite-template-redux': `npx tiged --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch}#${gitHubUrl?.commitHash} example -v && cd example && npm install`,
+  'vite-template-redux': `npx tiged --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch} example -v && cd example && npm install`,
 }
 
 const mockTemplate = async (template) => {
