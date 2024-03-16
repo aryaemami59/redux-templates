@@ -32,7 +32,7 @@ jobs:
   test:
     name: Test ${{ matrix.nickname }}
     # name: Test
-    if: needs.generate-matrix.outputs.matrix != ''
+    # if: needs.generate-matrix.outputs.matrix != ''
     needs: [generate-matrix]
     runs-on: ubuntu-latest
     strategy:
