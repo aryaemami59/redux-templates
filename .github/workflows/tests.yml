@@ -5,6 +5,10 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    name: Test and Lint ${{ matrix.packages }} on Node.js ${{ matrix.node }}
+    defaults:
+      run:
+        working-directory: example
     strategy:
       fail-fast: false
       matrix:
