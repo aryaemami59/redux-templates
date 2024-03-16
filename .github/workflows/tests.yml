@@ -3,102 +3,38 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  generate-matrix:
-    name: Generate Job Matrix
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: yarn
-      - run: node ./scripts/mockTemplates.mjs
-        id: set-matrix
-  # changes:
-  #   name: Check for changes
-  #   runs-on: ubuntu-latest
-
-  # steps:
-  #   - name: Checkout repository
-  #     uses: actions/checkout@v4
-
-  # - name: Filter packages
-  #   uses: dorny/paths-filter@v3
-  #   id: filter
-  #   with:
-  #     filters: |
-  #       packages:
-  #         - 'packages/*'
-
   test:
-    name: Test ${{ matrix.nickname }}
-    # name: Test
-    if: needs.generate-matrix.outputs.matrix != ''
-    needs: [generate-matrix]
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        node: ['21.x']
-        template: ${{fromJSON(needs.generate-matrix.outputs.matrix)}}
-          # [
-          #   'npx create-react-app cra-template-redux --template',
-          #   'npx create-react-app cra-template-redux-typescript --template',
-          #   'expo-template-redux-typescript',
-          #   'react-native-template-redux-typescript',
-          #   'vite-template-redux',
-          # ]
+        node: [20.x]
+        os: [ubuntu-latest, windows-latest]
+        packages:
+          [
+            'cra-template-redux',
+            'cra-template-redux-typescript',
+            'expo-template-redux-typescript',
+            'react-native-template-redux-typescript',
+            'vite-template-redux',
+          ]
 
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
-        # with:
-        #   ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          # cache: 'yarn'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn workspaces focus ${{ matrix.packages }}
 
       - name: Mock the templates
-        run: ${{ matrix.template }}
+        run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
 
-        # run: node ./scripts/mockTemplates.mjs
-
-      # - name: Download Artifacts
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: ${{ needs.changes.outputs.packages }}
-      #     path: ${{ needs.changes.outputs.packages }}
-
-      # - run: ls -lah
-
-      # - name: Install build artifact
-      #   run: yarn workspace ${{ needs.changes.outputs.packages }} add $(pwd)/package.tgz
-
-      # - name: Run tests, against dist
-      #   run: yarn test
-
-  # build:
-  #   name: Build
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node: ['20.x']
-  #   steps:
-  #     - name: Check out repo
-  #       uses: actions/checkout@v4
-  #       with:
-  #         ref: ${{ github.event.pull_request.head.sha }}
-
-  #     - name: Use Node.js ${{ matrix.node }}
-  #       uses: actions/setup-node@v4
-
-  #     - name: Install dependencies
-  #       run: yarn install
-
-  #     - name: Build
-  #       run: yarn build
+      - name: Run Test for ${{ matrix.packages }}
+        working-directory: example
+        run: npm run test
