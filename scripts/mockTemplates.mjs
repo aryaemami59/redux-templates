@@ -63,15 +63,17 @@ const commitHash = await getCommitHash()
 async function constructGitHubUrl() {
   try {
     // Get the URL of the current remote repository
-    const remoteUrl = (await exec('git remote get-url origin')).stdout
+    const remoteUrl = (await exec('git remote get-url origin')).stdout.trim()
     // Transform SSH URL to HTTPS URL if necessary
     // remoteUrl = remoteUrl.replace(/^git@([^:]+):/, 'https://$1/').replace('.git', '');
 
     // Get the name of the current branch
-    const currentBranch = (await exec('git branch --show-current')).stdout
+    const currentBranch = (
+      await exec('git branch --show-current')
+    ).stdout.trim()
 
     // Get the latest commit hash
-    const commitHash = (await exec('git rev-parse HEAD')).stdout
+    const commitHash = (await exec('git rev-parse HEAD')).stdout.trim()
 
     // Construct the URL
     // Assuming the 'packages/vite-template-redux#convert-to-monorepo' part is static
