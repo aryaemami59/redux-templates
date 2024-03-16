@@ -6,9 +6,6 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     name: Test and Lint ${{ matrix.packages }} on Node.js ${{ matrix.node }}
-    defaults:
-      run:
-        working-directory: example
     strategy:
       fail-fast: false
       matrix:
@@ -39,6 +36,10 @@ jobs:
       - name: Mock the templates
         run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
 
-      - name: Run Test for ${{ matrix.packages }}
-        working-directory: example
+      - working-directory: example
+        name: Run Test for ${{ matrix.packages }}
         run: npm run test
+
+      - working-directory: example
+        name: Run Lint for ${{ matrix.packages }}
+        run: npm run lint
