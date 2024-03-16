@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { exec as _exec } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { promisify } from 'node:util';
+import { exec as _exec } from 'node:child_process'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { promisify } from 'node:util'
 
 const exec = promisify(_exec)
 
