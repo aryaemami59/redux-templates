@@ -132,4 +132,4 @@ const mockTemplates = async () => {
   })
 }
 
-// await mockTemplates()
+await mockTemplates()
