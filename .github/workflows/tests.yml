@@ -23,14 +23,6 @@ jobs:
             'react-native-template-redux-typescript',
             'vite-template-redux',
           ]
-        template:
-          [
-            'npx create-react-app cra-template-redux --template',
-            'npx create-react-app cra-template-redux-typescript --template',
-            'expo-template-redux-typescript',
-            'react-native-template-redux-typescript',
-            'vite-template-redux',
-          ]
 
     steps:
       - name: Check out repo
