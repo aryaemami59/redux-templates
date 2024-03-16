@@ -30,6 +30,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
+      - name: Cache example deps
+        uses: actions/cache@v4
+        with:
+          path: example/node_modules
+          key: ${{ runner.os }}-example-${{ hashFiles('example/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-example-
+
       - name: Install dependencies
         run: yarn workspaces focus ${{ matrix.packages }}
 
