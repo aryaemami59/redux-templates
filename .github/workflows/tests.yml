@@ -29,7 +29,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Mock the templates
-        run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
+        run: yarn jiti scripts/mockTemplates.mjs ${{ matrix.packages }}
 
       - name: Run Test for ${{ matrix.packages }}
         working-directory: example

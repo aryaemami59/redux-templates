@@ -30,6 +30,7 @@
     "eslint": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
+    "jiti": "^1.21.0",
     "prettier": "latest",
     "react-native": "^0.73.5",
     "react-redux": "latest",
