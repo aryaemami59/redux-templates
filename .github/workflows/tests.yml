@@ -36,10 +36,10 @@ jobs:
       - name: Mock the templates
         run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
 
-      - working-directory: example
-        name: Run Test for ${{ matrix.packages }}
+      - name: Run Test for ${{ matrix.packages }}
+        working-directory: example
         run: npm run test
 
-      - working-directory: example
-        name: Run Lint for ${{ matrix.packages }}
+      - name: Run Lint for ${{ matrix.packages }}
+        working-directory: example
         run: npm run lint
