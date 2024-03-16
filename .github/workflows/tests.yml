@@ -40,7 +40,7 @@ jobs:
       matrix:
         node: ['21.x']
         template:
-          ${{ fromJSON(needs.generate-matrix.outputs.matrix) }}
+          ${{ toJson(needs.generate-matrix.outputs.matrix) }}
           # [
           #   'npx create-react-app cra-template-redux --template',
           #   'npx create-react-app cra-template-redux-typescript --template',
