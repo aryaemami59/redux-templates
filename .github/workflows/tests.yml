@@ -45,6 +45,5 @@ jobs:
         run: npm run lint
 
       - name: Job Failed
-        working-directory: example
         if: failure()
         run: ls -al
