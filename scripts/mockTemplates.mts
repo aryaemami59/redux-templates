@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -vS node --import=tsx
 
 import { exec as _exec } from 'node:child_process'
 import path from 'node:path'
