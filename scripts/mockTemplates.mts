@@ -1,4 +1,4 @@
-#!/usr/bin/env -S npx tsx
+#!/usr/bin/env -vS npx tsx
 
 import { exec as _exec } from 'node:child_process'
 import path from 'node:path'
@@ -98,7 +98,14 @@ const allTemplates = {
  * @returns {Promise<void>} - A promise that resolves when the template execution is complete.
  */
 const mockTemplate = async (template) => {
-  await exec(allTemplates[template])
+  try {
+    const { stderr, stdout } = await exec(allTemplates[template])
+    console.log(stdout)
+    console.log(stderr)
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
 }
 
 await mockTemplate(process.argv.at(-1))
