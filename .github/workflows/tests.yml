@@ -34,7 +34,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.os }}-yarn-${{ matrix.packages }}
+          key: ${{ runner.os }}-yarn-${{ matrix.packages }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         # run: yarn install
