@@ -24,7 +24,8 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
         with:
-          sparse-checkout: ${{ matrix.packages }}/*
+          sparse-checkout: ${{ matrix.packages }}
+          sparse-checkout-cone-mode: false
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
