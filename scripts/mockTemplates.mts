@@ -1,4 +1,4 @@
-#!/usr/bin/env -vS npx tsx
+#!/usr/bin/env -S npx tsx
 
 import { exec as _exec } from 'node:child_process'
 import path from 'node:path'
