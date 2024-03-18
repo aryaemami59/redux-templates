@@ -51,7 +51,3 @@ jobs:
       - name: Run Lint for ${{ matrix.packages }}
         working-directory: example
         run: npm run lint
-
-      - name: Job Failed
-        if: failure()
-        run: ls
