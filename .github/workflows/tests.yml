@@ -43,3 +43,14 @@ jobs:
       - name: Run Lint for ${{ matrix.packages }}
         working-directory: example
         run: npm run lint
+
+      - name: Set up JDK 17 for React Native build
+        if: matrix.packages == 'react-native-template-redux-typescript' || matrix.packages == 'expo-template-redux-typescript'
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17.x'
+          distribution: 'temurin'
+
+      - name: Build ${{ matrix.packages }}
+        working-directory: example
+        run: npm run build
