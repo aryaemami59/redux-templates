@@ -28,8 +28,7 @@
     "eslint-config-prettier": "latest",
     "eslint-plugin-prettier": "latest",
     "prettier": "latest",
-    "react-redux": "latest",
-    "tsx": "^4.7.1"
+    "react-redux": "latest"
   },
   "packageManager": "yarn@4.1.1"
 }
