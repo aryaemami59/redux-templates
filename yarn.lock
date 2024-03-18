@@ -17018,7 +17018,7 @@ __metadata:
     eslint-plugin-prettier: "npm:latest"
     prettier: "npm:latest"
     react-redux: "npm:latest"
-    tiged: "aryaemami59/tiged#workflow"
+    tiged: "https://github.com/aryaemami59/tiged.git#head=workflow"
     tsx: "npm:^4.7.1"
   languageName: unknown
   linkType: soft
@@ -18999,7 +18999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiged@aryaemami59/tiged#workflow":
+"tiged@https://github.com/aryaemami59/tiged.git#head=workflow":
   version: 2.12.7
   resolution: "tiged@https://github.com/aryaemami59/tiged.git#commit=4cbb165f66008164061e0ba5210fe8ca908827d1"
   dependencies:
