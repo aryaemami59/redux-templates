@@ -89,7 +89,7 @@ const allTemplates = {
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
   // tiged has issues with commit hashes https://github.com/tiged/tiged/pull/89, https://github.com/tiged/tiged/issues/90, so until that is fixed, we will just use the branch name.
   // 'vite-template-redux': `git clone -n --depth=1 --filter=tree:0 ${gitHubUrl?.remoteUrl} example -b ${gitHubUrl?.currentBranch} && cd example && git sparse-checkout set --no-cone vite-template-redux && git fetch --depth 1 origin ${gitHubUrl?.currentBranch} && git checkout FETCH_HEAD && cd .. && mv example/packages/vite-template-redux example && rm -rf example/packages && mv example/vite-template-redux example && cd example && npm install && rm -rf .git`,
-  'vite-template-redux': `npx -p aryaemami59/tiged#migrate-to-typescript --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch} example -v && cd example && npm install`,
+  'vite-template-redux': `npx -y aryaemami59/tiged#migrate-to-typescript --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch} example -v && cd example && npm install`,
   // 'vite-template-redux': `npm exec tiged@https://github.com/aryaemami59/tiged#head=migrate-to-typescript --mode=git ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch} example -v && cd example && npm install`,
 }
 
