@@ -51,6 +51,6 @@ jobs:
         working-directory: example
         run: npm run lint
 
-      # - name: Build ${{ matrix.packages }}
-      #   working-directory: example
-      #   run: npm run build
+      - name: Build ${{ matrix.packages }}
+        working-directory: example
+        run: npm run build
