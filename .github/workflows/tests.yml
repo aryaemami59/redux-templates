@@ -30,12 +30,12 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ matrix.os }}-yarn-${{ matrix.packages }}
-          restore-keys: ${{ matrix.os }}-yarn-${{ matrix.packages }}-${{ hashFiles('yarn.lock') }}
+      # - name: Cache dependencies
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: node_modules
+      #     key: ${{ matrix.os }}-yarn-${{ matrix.packages }}
+      #     restore-keys: ${{ matrix.os }}-yarn-${{ matrix.packages }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install
