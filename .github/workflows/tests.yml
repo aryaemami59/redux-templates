@@ -1,7 +1,6 @@
 name: CI
 
 on: [push, pull_request]
-permissions: write-all
 
 jobs:
   test:
@@ -37,7 +36,6 @@ jobs:
       #     path: node_modules
       #     key: ${{ matrix.os }}-yarn-${{ matrix.packages }}
       #     restore-keys: ${{ matrix.os }}-yarn-${{ matrix.packages }}-${{ hashFiles('yarn.lock') }}
-
       - name: Install dependencies
         run: yarn install
         # run: yarn workspaces focus ${{ matrix.packages }}
