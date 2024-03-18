@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env -S yarn tsx
 
 import { exec as _exec } from 'node:child_process'
 import path from 'node:path'
