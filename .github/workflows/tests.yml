@@ -35,8 +35,6 @@ jobs:
         with:
           path: ${{ matrix.packages }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
         run: yarn workspaces focus ${{ matrix.packages }}
