@@ -46,4 +46,4 @@ jobs:
 
       - name: Job Failed
         if: failure()
-        run: ls -al
+        run: ls
