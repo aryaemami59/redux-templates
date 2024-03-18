@@ -31,8 +31,8 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        # run: yarn install
-        run: yarn workspaces focus ${{ matrix.packages }}
+        run: yarn install
+        # run: yarn workspaces focus ${{ matrix.packages }}
 
       - name: Mock the templates
         run: scripts/mockTemplates.mts ${{ matrix.packages }}
