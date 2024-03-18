@@ -34,7 +34,7 @@ jobs:
         run: yarn workspaces focus ${{ matrix.packages }}
 
       - name: Mock the templates
-        run: node scripts/mockTemplates.mjs ${{ matrix.packages }}
+        run: npx tsx scripts/mockTemplates.mts ${{ matrix.packages }}
 
       - name: Run Test for ${{ matrix.packages }}
         working-directory: example
