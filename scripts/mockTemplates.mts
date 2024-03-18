@@ -109,4 +109,3 @@ const mockTemplate = async (template) => {
 }
 
 await mockTemplate(process.argv.at(-1))
-
