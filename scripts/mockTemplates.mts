@@ -101,4 +101,4 @@ const mockTemplate = async (template) => {
   await exec(allTemplates[template])
 }
 
-await mockTemplate(process.argv[2])
+await mockTemplate(process.argv.at(-1))
