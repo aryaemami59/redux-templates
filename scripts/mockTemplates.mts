@@ -83,7 +83,7 @@ async function constructGitHubUrl() {
 const gitHubUrl = await constructGitHubUrl()
 
 const allTemplates = {
-  'cra-template-redux': `npx create-react-app example --template file:${workspaces?.get('cra-template-redux')}`,
+  'cra-template-redux': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux')}`,
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces?.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
