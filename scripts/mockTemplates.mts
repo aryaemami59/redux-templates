@@ -87,7 +87,6 @@ const allTemplates = {
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces?.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces?.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces?.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
-  // tiged has issues with commit hashes https://github.com/tiged/tiged/pull/89, https://github.com/tiged/tiged/issues/90, so until that is fixed, we will just use the branch name.
   'vite-template-redux': `npx -y tiged@latest ${gitHubUrl?.remoteUrl}/packages/vite-template-redux#${gitHubUrl?.currentBranch} example -v && cd example && npm install`,
 }
 
