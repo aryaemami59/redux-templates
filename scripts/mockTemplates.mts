@@ -13,8 +13,8 @@ const __dirname = path.dirname(__filename)
 /**
  * Retrieves a map of Yarn workspaces and their corresponding locations.
  *
- * @returns {Promise<Map<string, string>>} A promise that resolves to a map of workspace names and their locations.
- * @throws {Error} If there is an error while listing Yarn workspaces.
+ * @returns A promise that resolves to a map of workspace names and their locations.
+ * @throws An error If there is an error while listing Yarn workspaces.
  */
 const listYarnWorkspaces = async () => {
   try {
@@ -56,10 +56,14 @@ const workspaces = await listYarnWorkspaces()
 /**
  * Constructs a GitHub URL based on the current Git repository information.
  *
- * @returns {Promise<{ remoteUrl: string, currentBranch: string, commitHash: string, }>} An object containing the remote URL, current branch, and commit hash.
- * @throws {Error} If there is an error while retrieving the Git repository information.
+ * @returns An object containing the remote URL, current branch, and commit hash.
+ * @throws An error If there is an error while retrieving the Git repository information.
  */
-async function constructGitHubUrl() {
+async function constructGitHubUrl(): Promise<{
+  remoteUrl: string
+  currentBranch: string
+  commitHash: string
+}> {
   try {
     const remoteUrl = (await exec('git remote get-url origin')).stdout.trim()
 
@@ -93,11 +97,11 @@ const allTemplates = {
 /**
  * Mocks a template by executing the template related command.
  *
- * @param {string} template - The name of the template to mock.
- * @returns {Promise<void>} - A promise that resolves when the template execution is complete.
+ * @param template - The name of the template to mock.
+ * @returns A promise that resolves when the template execution is complete.
  */
-const mockTemplate = async (template) => {
+const mockTemplate = async (template: string) => {
   await exec(allTemplates[template])
 }
 
-await mockTemplate(process.argv.at(-1))
+await mockTemplate(process.argv.at(-1)!)
