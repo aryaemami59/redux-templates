@@ -51,6 +51,6 @@ jobs:
           java-version: '17.x'
           distribution: 'temurin'
 
-      # - name: Build ${{ matrix.packages }}
-      #   working-directory: example
-      #   run: npm run build
+      - name: Build ${{ matrix.packages }}
+        working-directory: example
+        run: npm run build
