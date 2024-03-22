@@ -86,8 +86,6 @@ async function constructGitHubUrl(): Promise<{
 
 const gitHubUrl = await constructGitHubUrl()
 
-console.log(gitHubUrl, process.env)
-
 const allTemplates = {
   'cra-template-redux': `npx create-react-app example --template file:${workspaces.get('cra-template-redux')}`,
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces.get('cra-template-redux-typescript')}`,
