@@ -21,13 +21,13 @@ jobs:
           ]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
 
-      - name: Setup Node.js ${{ matrix.node }}
+      - name: Setup Node.js ${{ matrix.node }} for ${{ matrix.packages }} on ${{ matrix.os }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -36,24 +36,24 @@ jobs:
       # - name: Install dependencies
       #   run: yarn workspaces focus ${{ matrix.packages }}
 
-      - name: Mock the templates
+      - name: Mock the templates for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         run: npx tsx scripts/mockTemplates.mts ${{ matrix.packages }}
 
-      - name: Run test for ${{ matrix.packages }}
+      - name: Run test for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         working-directory: example
         run: npm run test
 
-      - name: Run lint for ${{ matrix.packages }}
+      - name: Run lint for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         working-directory: example
         run: npm run lint
 
-      - name: Set up JDK 17 for React Native build
+      - name: Set up JDK 17 for React Native build for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         if: matrix.packages == 'react-native-template-redux-typescript' || matrix.packages == 'expo-template-redux-typescript'
         uses: actions/setup-java@v4
         with:
           java-version: '17.x'
           distribution: 'temurin'
 
-      - name: Build ${{ matrix.packages }}
+      - name: Build ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         working-directory: example
         run: npm run build
