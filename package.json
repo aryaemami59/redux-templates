@@ -29,7 +29,7 @@
     "eslint-plugin-prettier": "latest",
     "prettier": "latest",
     "react-redux": "latest",
-    "tiged": "aryaemami59/tiged#migrate-to-typescript",
+    "tiged": "github:aryaemami59/tiged#migrate-to-typescript",
     "tsx": "^4.7.1"
   },
   "packageManager": "yarn@4.1.1"

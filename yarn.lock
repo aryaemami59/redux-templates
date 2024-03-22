@@ -17008,7 +17008,7 @@ __metadata:
     eslint-plugin-prettier: "npm:latest"
     prettier: "npm:latest"
     react-redux: "npm:latest"
-    tiged: "aryaemami59/tiged#migrate-to-typescript"
+    tiged: "github:aryaemami59/tiged#migrate-to-typescript"
     tsx: "npm:^4.7.1"
   languageName: unknown
   linkType: soft
@@ -18988,9 +18988,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiged@aryaemami59/tiged#migrate-to-typescript":
+"tiged@github:aryaemami59/tiged#migrate-to-typescript":
   version: 2.12.7
-  resolution: "tiged@https://github.com/aryaemami59/tiged.git#commit=81e855509330a87ee5350f7e1402118d8a805cb9"
+  resolution: "tiged@https://github.com/aryaemami59/tiged.git#commit=d6d179f73486af65c2819ba0b2c70f20e4313bf0"
   dependencies:
     colorette: "npm:2.0.20"
     enquirer: "npm:2.3.6"
@@ -19004,7 +19004,7 @@ __metadata:
   bin:
     degit: dist/bin.js
     tiged: dist/bin.mjs
-  checksum: 10/0d2241dc82b2ee195d370a3c79173a34e843c7cccc9a705226bf64cab37d7d6554477f8337f2983c11e55a5f57e733b41c13d34e49da6f900ac481ad1920bcfc
+  checksum: 10/fc223b9b4ddaa746a10b0a839e826d4b331a0e87620ab472c37a722fad9b037882a668040824c11944332ccf5deb716deba1f80cb8870898b6d6af2d6654be3d
   languageName: node
   linkType: hard
 
