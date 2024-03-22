@@ -68,7 +68,7 @@ async function constructGitHubUrl(): Promise<{
     const remoteUrl = (await exec('git remote get-url origin')).stdout.trim()
 
     const currentBranch = (
-      await exec('git branch --show-current')
+      await exec('git rev-parse --abbrev-ref HEAD')
     ).stdout.trim()
 
     const commitHash = (await exec('git rev-parse HEAD')).stdout.trim()
