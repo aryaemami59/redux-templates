@@ -38,7 +38,7 @@ jobs:
         run: yarn install
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-          YARN_CHECKSUM_BEHAVIOR: 'update'
+          YARN_CHECKSUM_BEHAVIOR: 'yarn update'
 
       - name: Mock the templates
         run: npx tsx scripts/mockTemplates.mts ${{ matrix.packages }}
