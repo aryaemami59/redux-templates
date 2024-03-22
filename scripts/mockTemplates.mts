@@ -86,7 +86,7 @@ async function constructGitHubUrl(): Promise<{
 
 const gitHubUrl = await constructGitHubUrl()
 
-console.log(gitHubUrl.currentBranch, 'CURRENT BRANCH')
+console.log(gitHubUrl)
 
 const allTemplates = {
   'cra-template-redux': `npx create-react-app example --template file:${workspaces.get('cra-template-redux')}`,
