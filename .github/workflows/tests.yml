@@ -51,6 +51,10 @@ jobs:
           java-version: '17.x'
           distribution: 'temurin'
 
+      - name: Workround for tiged
+        if: matrix.packages == 'vite-template-redux'
+        run: npm install -g tiged@aryaemami59/tiged#migrate-to-typescript
+
       - name: Build ${{ matrix.packages }}
         working-directory: example
         run: npm run build
