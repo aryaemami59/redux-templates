@@ -22,19 +22,21 @@ jobs:
 
     steps:
       - name: Checkout repository for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - name: Checkout repository for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/checkout@v4
 
       - name: Setup Node.js ${{ matrix.node }} for ${{ matrix.packages }} on ${{ matrix.os }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
-
-      # - name: Install dependencies
-      #   run: yarn workspaces focus ${{ matrix.packages }}
 
       - name: Mock the templates for ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         run: npx tsx scripts/mockTemplates.mts ${{ matrix.packages }}
@@ -53,6 +55,7 @@ jobs:
         with:
           java-version: '17.x'
           distribution: 'temurin'
+          cache: 'gradle'
 
       - name: Build ${{ matrix.packages }} on ${{ matrix.node }} and ${{ matrix.os }}
         working-directory: example
