@@ -67,8 +67,6 @@ async function constructGitHubUrl(): Promise<{
   try {
     const remoteUrl = (await exec('git remote get-url origin')).stdout.trim()
 
-    // process.env.GITHUB_EVENT_NAME === 'pull_request'
-
     const currentBranch = (
       await exec('git branch --show-current')
     ).stdout.trim()
@@ -95,7 +93,7 @@ const allTemplates = {
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
-  'vite-template-redux': `rm -rf ~/.degit && yarn tiged --disable-cache ${'https://github.com/aryaemami59/redux-templates'}/packages/vite-template-redux#${gitHubUrl.currentBranch} example -v && cd example && npm install`,
+  'vite-template-redux': `rm -rf ~/.degit && yarn tiged --disable-cache ${gitHubUrl.remoteUrl}/packages/vite-template-redux#${gitHubUrl.currentBranch} example -v && cd example && npm install`,
 }
 
 /**
