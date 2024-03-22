@@ -35,7 +35,7 @@ jobs:
 
       - name: Workround for tiged
         if: matrix.packages == 'vite-template-redux'
-        run: yarn install -D tiged@aryaemami59/tiged#migrate-to-typescript
+        run: yarn add -D tiged@aryaemami59/tiged#migrate-to-typescript
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
