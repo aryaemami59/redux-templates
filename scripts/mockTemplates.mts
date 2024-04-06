@@ -71,7 +71,7 @@ async function constructGitHubUrl(): Promise<{
       await exec('git branch --show-current')
     ).stdout.trim()
 
-    const commitHash = (await exec('git rev-parse HEAD')).stdout.trim()
+    const commitHash = (await exec('git rev-parse --short HEAD')).stdout.trim()
 
     return {
       remoteUrl,
@@ -85,10 +85,9 @@ async function constructGitHubUrl(): Promise<{
 }
 
 const gitHubUrl = await constructGitHubUrl()
-console.log(gitHubUrl, process.env)
 
 const allTemplates = {
-  'cra-template-redux': `npx create-react-app@latest example --template file:${workspaces.get('cra-template-redux')}`,
+  'cra-template-redux': `npx create-react-app example --template file:${workspaces.get('cra-template-redux')}`,
   'cra-template-redux-typescript': `npx create-react-app@latest example --template file:${workspaces.get('cra-template-redux-typescript')}`,
   'expo-template-redux-typescript': `npx create-expo@latest example --template file:${workspaces.get('expo-template-redux-typescript')}`,
   'react-native-template-redux-typescript': `npx react-native@latest init app --template file:${workspaces.get('react-native-template-redux-typescript')} --pm=npm --directory example`,
